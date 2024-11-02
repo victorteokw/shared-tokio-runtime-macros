@@ -4,8 +4,8 @@ extern crate proc_macro;
 use quote::ToTokens;
 use syn::{parse_quote, ItemFn};
 
-#[proc_macro]
-pub fn runtime(input_stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
+#[proc_macro_attribute]
+pub fn runtime(_args: proc_macro::TokenStream, input_stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
     input_stream
     // let input_stream: proc_macro2::TokenStream = input_stream.into();
     // let mut input: ItemFn = match syn::parse2(input_stream.clone()) {
