@@ -1,0 +1,14 @@
+[package]
+name = "shared-tokio-runtime-macros"
+description = "Shared tokio runtime macros"
+version = "0.1.1"
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/victorteokw/shared-tokio-runtime-macros"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+quote = "1.0.37"
+syn = { version = "2.0.86", features = ["full", "fold", "extra-traits"] }
