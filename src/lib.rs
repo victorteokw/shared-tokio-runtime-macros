@@ -5,7 +5,7 @@ use quote::quote;
 use syn::{parse_macro_input, parse_quote, Item};
 
 #[proc_macro_attribute]
-pub fn runtime(_metadata: TokenStream, input: TokenStream) -> TokenStream {
+pub fn runtime(_args: TokenStream, input: TokenStream) -> TokenStream {
     let input: Item = match parse_macro_input!(input as Item) {
         Item::Fn(mut fn_item) => {
             let block = fn_item.block;
@@ -21,5 +21,5 @@ pub fn runtime(_metadata: TokenStream, input: TokenStream) -> TokenStream {
             panic!("The `runtime` macro attribute is only valid when called on a fn.")
         }
     };
-    TokenStream::from(quote! (#input))
+    TokenStream::from(input)
 }
